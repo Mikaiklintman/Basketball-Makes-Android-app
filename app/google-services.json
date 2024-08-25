@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "480860268010",
+    "firebase_url": "https://androidapp-a4f15-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "androidapp-a4f15",
+    "storage_bucket": "androidapp-a4f15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480860268010:android:18d26e8fb25ae51d5cbe93",
+        "android_client_info": {
+          "package_name": "se.mikaiklintman.pt123"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4JhZVyYFv9kvf0VN_P_yeeLXc7cI5mQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
