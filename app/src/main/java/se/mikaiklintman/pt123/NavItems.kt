@@ -15,11 +15,12 @@ val listOfNavItems = listOf(
     NavItem(
         label = "Home",
         icon = Icons.Default.Home,
-        route = Screens.Tab1.name
+        route = Screens.HomeView.name
     ),
     NavItem(
         label = "Profile",
         icon = Icons.Default.Person,
         route = Screens.Tab2.name
-    )
+    ),
+
 )

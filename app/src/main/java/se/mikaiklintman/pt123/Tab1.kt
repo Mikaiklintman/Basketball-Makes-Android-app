@@ -130,7 +130,7 @@ fun Tab1() {
 
                 val database = Firebase.database
                 val myRef = database.getReference("message")
-                val exampleFirebase = ShotPercentageFb(selectedPosition, "90", "60/90")
+                val exampleFirebase = ShotPercentageFb(selectedPosition)
                 val positionRef = database.getReference("heyyyy")
                 positionRef.setValue(exampleFirebase)
 
@@ -215,10 +215,7 @@ fun FirebaseStuff() {
 }
 
 data class ShotPercentageFb(
-    val position: String? = null,
-    val percentage: String? = null,
- //   val date: Date? = null,
-    val score: String? = null
+    val position: String? = null
     ) {
 
 }
