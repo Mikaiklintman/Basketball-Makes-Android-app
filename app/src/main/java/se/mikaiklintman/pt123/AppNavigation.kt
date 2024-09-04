@@ -71,18 +71,23 @@ fun AppNavigation(
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(route = Screens.HomeView.name) {
+
                 HomeView(percVM)
             }
             composable(route = Screens.Tab2.name) {
+
+
                 Tab2(percVM, goStats = {
-                    navController.navigate(Screens.TopofTheKey.name)
+                    navController
+                        .navigate("${Screens.TopofTheKey.name}/${it.shotsTook}/${it.shotsMade}/${it.position}/${it.percentage}")
                 })
 
                 }
 
-            composable(route = Screens.TopofTheKey.name) {
-                TopofTheKey(percVM)
-            }
+//            composable(route = Screens.TopofTheKey.name + "/{shotsMade}" + "/{shotsTook}" + "/{percentage}" + "/{position}") {
+//                val shotsMade1 = it.arguments?.getString("shotsMade")
+//                TopofTheKey(percVM)
+//            }
 
             }
         }
@@ -94,7 +99,8 @@ fun anonymousLogin() {
     auth.signInAnonymously()
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
-//val user = auth.currentUser
+
+            //    val user = auth.currentUser
                 Log.i("Logs", "Log in successful")
             } else {
                 Log.i("Logs", "Log in NOT successful")
