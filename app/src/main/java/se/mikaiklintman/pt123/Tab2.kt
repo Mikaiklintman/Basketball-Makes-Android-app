@@ -79,8 +79,8 @@ fun Tab2(percVM: PercViewmodel, goStats: (FirebaseClass) -> Unit) {
                             }
 
                             // Show only the 3 most recent stats under each position
-                            val recentStats = stats.take(3)
-                            items(recentStats) { stat ->
+
+                            items(stats) { stat ->
                                 val currentTime = remember {
                                     SimpleDateFormat(
                                         "yyyy-MM-dd",

@@ -18,8 +18,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Pt123Theme {
-                AppNavigation()
                 anonymousLogin()
+                AppNavigation()
+
 
                 }
             }

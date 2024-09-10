@@ -50,19 +50,30 @@ class PercViewmodel : ViewModel() {
     }
 
     fun loadPerc() {
-        database.getReference("Percentage").child(Firebase.auth.currentUser!!.uid).get()
+        val currentUser = Firebase.auth.currentUser
+        if (currentUser == null) {
+            Log.e("PercViewmodel", "User is null!")
+            return
+        }
+
+        database.getReference("Percentage").child(currentUser.uid).get()
             .addOnSuccessListener {
-                var tempPercList = mutableListOf<FirebaseClass>()
+                val tempPercList = mutableListOf<FirebaseClass>()
                 for (childsnap in it.children) {
-                    var tempPerc = childsnap.getValue<FirebaseClass>()
-                    tempPerc!!.fbid = childsnap.key
-                    Log.i("Logss", tempPerc!!.fbid!!)
-                    tempPercList.add(tempPerc)
+                    val tempPerc = childsnap.getValue<FirebaseClass>()
+                    if (tempPerc != null) {
+                        tempPerc.fbid = childsnap.key
+                        Log.i("Logss", tempPerc.fbid ?: "No fbid")
+                        tempPercList.add(tempPerc)
+                    } else {
+                        Log.e("PercViewmodel", "tempPerc is null for key: ${childsnap.key}")
+                    }
                 }
                 _statsList.value = tempPercList
             }
-            .addOnFailureListener {
-
+            .addOnFailureListener { exception ->
+                Log.e("PercViewmodel", "Failed to load data: ${exception.message}")
             }
     }
+
 }
